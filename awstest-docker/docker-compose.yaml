@@ -1,0 +1,50 @@
+services:
+  aswtest-db:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=awstest
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+    ports:
+      - 5432:5432
+    volumes:
+      - awstest-db-data:/var/lib/postgresql/data
+
+  alpine-sqs:
+    image: roribio16/alpine-sqs:latest
+    container_name: alpine-sqs
+    ports:
+      - "9324:9324"
+      - "9325:9325"
+    stdin_open: true
+    tty: true
+
+#  localstack:
+#    container_name: "${LOCALSTACK_DOCKER_NAME:-localstack-main}"
+#    image: localstack/localstack
+#    ports:
+#      - "127.0.0.1:4566:4566"            # LocalStack Gateway
+#      - "127.0.0.1:4510-4559:4510-4559"  # external services port range
+#    environment:
+#      - SERVICES=dynamodb,sns,sqs,s3
+#      # LocalStack configuration: https://docs.localstack.cloud/references/configuration/
+#      - DEBUG=${DEBUG:-0}
+#    volumes:
+#      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+#      - "/var/run/docker.sock:/var/run/docker.sock"
+
+  aws:
+    image: 'localstack/localstack'
+    container_name: 'localstack'
+    environment:
+      - SERVICES=sqs
+      - DEFAULT_REGION=us-east-1
+      - AWS_DEFAULT_REGION=us-east-1
+      - DEBUG=1
+      - DATA_DIR=/tmp/localstack/data
+    ports:
+      - '4566:4566'
+
+volumes:
+  awstest-db-data:
+    external: true
