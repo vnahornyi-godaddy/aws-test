@@ -14,8 +14,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 public class AwsTestApplication {
 
     public static void main(String[] args) {
-        log.error("ERROR!!!");
-        System.out.println("Hello, World!!!");
         SpringApplication.run(AwsTestApplication.class, args);
         System.out.println("Done!!!");
     }
