@@ -12,3 +12,20 @@ spring:
 
   application:
     name: aws-test
+
+cloud:
+  aws:
+    stack:
+      auto: false
+    region:
+      static: us-east-1
+      auto: false
+    credentials:
+      access-key: VIKTORNAHORNYIEXAMPLE
+      secret-key: 2QvM4/Tdmf38SkcD/qalvXO4EXAMPLEKEY
+    queue:
+      url: http://localhost:4566
+      name: sample-queue
+
+#server:
+#  port: 8089

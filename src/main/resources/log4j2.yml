@@ -1,0 +1,22 @@
+Configuration:
+  Properties:
+    Property:
+      name: log-path
+      value: "logs"
+  appenders:
+    Console:
+      name: LogToConsole
+      PatternLayout:
+        pattern: "[%-5p] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1}: %msg%n"
+    Files:
+      - name: LogToFile
+        Append: false
+        fileName: ${log-path}/aws-test.log
+        PatternLayout:
+          pattern: "[%-5p] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1}: %msg%n"
+  Loggers:
+    Root:
+      level: trace
+      AppenderRef:
+        - ref: LogToFile
+        - ref: LogToConsole

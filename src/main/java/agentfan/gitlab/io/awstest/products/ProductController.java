@@ -31,4 +31,10 @@ public class ProductController {
     public ProductEntity createProduct(@RequestBody ProductEntity productEntity) {
         return service.createProduct(productEntity);
     }
+
+    @PostMapping("/delayed")
+    public ProductEntity delayedCreateProduct(@RequestBody ProductEntity productEntity) {
+        service.delayedCreateProduct(productEntity);
+        return productEntity;
+    }
 }
