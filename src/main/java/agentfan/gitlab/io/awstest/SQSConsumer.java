@@ -7,7 +7,8 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class SQSConsumer {
-    @SqsListener("${cloud.aws.queue.name}")
+    @SqsListener("sample-queue")
+//    @SqsListener("${cloud.aws.queue.name}")
     public void receiveMessage(String message) {
         log.info("SQS Message Received : {}", message);
     }

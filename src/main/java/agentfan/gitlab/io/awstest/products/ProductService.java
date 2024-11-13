@@ -51,7 +51,8 @@ public class ProductService {
             String message = objectMapper.writeValueAsString(productEntity);
             log.info("Sending the message: {}", message);
             SendMessageRequest sendMessageRequest = new SendMessageRequest()
-                    .withQueueUrl("http://localhost:4566/000000000000/sample-queue")
+//                    .withQueueUrl("http://localhost:4566/000000000000/sample-queue")
+                    .withQueueUrl("http://sqs.us-east-1.localhost.localstack.cloud:4566/000000000000/sample-queue")
                     .withMessageBody(message);
 //                    .withMessageGroupId("sample-message");
 //                    .withMessageDeduplicationId(UUID.randomUUID().toString());

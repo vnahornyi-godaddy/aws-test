@@ -25,7 +25,7 @@ cloud:
       secret-key: 2QvM4/Tdmf38SkcD/qalvXO4EXAMPLEKEY
     queue:
       url: http://localhost:4566
-      name: sample-queue
+      name: http://localhost:4566/000000000000/sample-queue
 
 #server:
 #  port: 8089

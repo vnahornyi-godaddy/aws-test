@@ -45,6 +45,18 @@ services:
     ports:
       - '4566:4566'
 
+#  localstack:
+#    image: 'localstack/localstack:3.8.1'
+#    container_name: 'localstack'
+#    environment:
+#      - SERVICES=sqs
+#      - DEBUG=1
+#      - PERSISTENCE=1
+#    volumes:
+#      - localstackData1:/var/lib/localstack
+#    ports:
+#      - '4566:4566'
+
 #volumes:
 #  awstest-db-data:
 #    external: true
